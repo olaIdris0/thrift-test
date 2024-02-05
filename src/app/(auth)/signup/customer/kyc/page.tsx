@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 const Kyc = () => {
@@ -8,6 +9,7 @@ const Kyc = () => {
     "personal" | "next of kin" | "identification" | "final"
   >("personal");
 
+  const socials = ["facebook", "linkedin", "instagram", "twitter", "envelope"];
   return (
     <>
       <form className="mt-8" onSubmit={(e) => e.preventDefault()}>
@@ -350,7 +352,7 @@ const Kyc = () => {
                 ullamcorper interdum
               </p>
 
-              <div className="">
+              <div className="flex items-center justify-between gap-2">
                 <span>
                   <Image
                     src="/people.svg"
@@ -358,38 +360,22 @@ const Kyc = () => {
                     width={20}
                     height={20}
                     loading="lazy"
+                    className="me-2 inline"
                   />
-                  <span>21640 Users</span>
+                  <span className="text-sm font-semibold">21640 Users</span>
                 </span>
-                <span>
-                  <Image
-                    src="/people.svg"
-                    alt="approval badge"
-                    width={20}
-                    height={20}
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/people.svg"
-                    alt="approval badge"
-                    width={20}
-                    height={20}
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/people.svg"
-                    alt="approval badge"
-                    width={20}
-                    height={20}
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/people.svg"
-                    alt="approval badge"
-                    width={20}
-                    height={20}
-                    loading="lazy"
-                  />
+                <span className="flex items-center gap-2">
+                  {socials.map((name, index) => (
+                    <Link href={`https://www.${name}.com`} key={index}>
+                      <Image
+                        src={`/${name}.svg`}
+                        alt="approval badge"
+                        width={16}
+                        height={16}
+                        loading="lazy"
+                      />
+                    </Link>
+                  ))}
                 </span>
               </div>
             </div>

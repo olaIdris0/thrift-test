@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "Customer SignUp | Ajo by Raoatech",
   description: "Create your account",
 };
 
-const page = () => {
+const Page = () => {
   return (
     <form className="mt-8">
       <div className="mb-8">
@@ -144,14 +146,16 @@ const page = () => {
           />
         </div>
       </div>
-      <button
-        type="submit"
-        className="w-full rounded-md bg-ajo_blue py-3 text-sm font-semibold text-white  hover:bg-indigo-500 focus:bg-indigo-500"
-      >
-        Create account
-      </button>
+      <Link href="customer/kyc">
+        <button
+          type="submit"
+          className="w-full rounded-md bg-ajo_blue py-3 text-sm font-semibold text-white  hover:bg-indigo-500 focus:bg-indigo-500"
+        >
+          Create account
+        </button>
+      </Link>
     </form>
   );
 };
 
-export default page;
+export default Page;
